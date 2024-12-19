@@ -1,8 +1,6 @@
 <template>
   <a-layout>
-  
     <a-layout class="full-layout-area">
-
       <!-- Main Content -->
       <a-layout class="main-content">
         <Header />

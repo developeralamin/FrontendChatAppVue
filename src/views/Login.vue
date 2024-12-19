@@ -77,7 +77,7 @@ const onFinish = () => {
       authenticate.login(response.data.data.token);
       authenticate.setUser(response.data.data.user);
       loading.value = false;
-       router.push({ name: 'users' }); 
+       router.push({ name: 'onlineUser' }); 
     })
     .catch((error) => {
      if (error.response.status == "422") {

@@ -10,7 +10,12 @@
       <div class="navbar-brand ml-3 font-weight-bold">
         Home
       </div>
-
+      <ul>
+        <router-link :to="{ name: 'onlineUser' }">
+            <span> Potumia </span>
+          </router-link>
+        <li>cate</li>
+      </ul>
       <!-- Topbar Navbar -->
       <ul class="navbar-nav profile-bar">
         <div class="topbar-divider d-none d-sm-block"></div>
@@ -61,8 +66,6 @@ const logout = () => {
   authenticate.logout();
   router.push({ name: "login" });
 };
-
-
 
 /**
  * Check if user is logged in
