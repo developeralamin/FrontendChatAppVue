@@ -7,14 +7,12 @@ export const useAuthenticateStore = defineStore({
   state: () => ({
     token: localStorage.getItem("token") || "",
     user: JSON.parse(localStorage.getItem("user")),
-    returnUrl: null,
   }),
 
   getters: {
     isAuthenticated: (state) => !!state.token,
     getToken: (state) => state.token,
     getUser: (state) => state.user,
-    getReturnUrl: (state) => state.returnUrl,
   },
 
   actions: {

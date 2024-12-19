@@ -11,7 +11,6 @@
               id="email"
               class="form-control"
               v-model="login.email"
-              required
               placeholder="Enter your email"
             />
             <div v-if="login.errors.email" class="text-danger">
@@ -26,7 +25,6 @@
               id="password"
               class="form-control"
               v-model="login.password"
-              required
               placeholder="Enter your password"
             />
             <div v-if="login.errors.password" class="text-danger">
@@ -65,7 +63,6 @@ const router = useRouter();
 const login = reactive({
   email: "",
   password: "",
-  remember: true,
   errors: {},
 });
 
@@ -80,12 +77,11 @@ const onFinish = () => {
       authenticate.login(response.data.data.token);
       authenticate.setUser(response.data.data.user);
       loading.value = false;
+       router.push({ name: 'users' }); 
     })
     .catch((error) => {
-      const { data } = error.response;
-      if (data.status === "fail") {
-        login.errors = data.errors || {};
-        login.password = null;
+     if (error.response.status == "422") {
+        login.errors = error.response.data.errors;
       }
       loading.value = false;
     });
